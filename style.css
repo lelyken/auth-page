@@ -5,10 +5,12 @@
 }
 
 body {
- body {
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  background: linear-gradient(rgba(2, 6, 23, 0.55), rgba(2, 6, 23, 0.7)), url('bg.jpg') no-repeat center center fixed;
+  background-image: linear-gradient(rgba(2, 6, 23, 0.45), rgba(2, 6, 23, 0.65)), url('space-rocket_945966.jpg');
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: #f8fafc;
   min-height: 100vh;
   display: flex;
@@ -19,16 +21,6 @@ body {
   position: relative;
 }
 
-}
-
-/* Плавно переливающийся фон */
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Светящееся пятно, которое следует за курсором */
 .cursor-glow {
   position: fixed;
   top: 0;
@@ -40,7 +32,6 @@ body {
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 0;
-  transition: width 0.3s, height 0.3s;
 }
 
 .card {
@@ -48,19 +39,18 @@ body {
   z-index: 1;
   width: 100%;
   max-width: 410px;
-  background: rgba(15, 23, 42, 0.7);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 40px 32px;
   border-radius: 24px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
   animation: cardAppear 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   transition: transform 0.15s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
 }
 
-/* Плавный вылет карточки при загрузке */
 @keyframes cardAppear {
   0% {
     opacity: 0;
@@ -72,7 +62,6 @@ body {
   }
 }
 
-/* Внутренний блик на самой карточке от курсора */
 .card::before {
   content: '';
   position: absolute;
@@ -82,7 +71,7 @@ body {
   bottom: 0;
   background: radial-gradient(
     350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(56, 189, 248, 0.14),
+    rgba(56, 189, 248, 0.15),
     transparent 80%
   );
   pointer-events: none;
@@ -90,8 +79,8 @@ body {
 }
 
 .card:hover {
-  border-color: rgba(56, 189, 248, 0.4);
-  box-shadow: 0 30px 60px -12px rgba(56, 189, 248, 0.15);
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 30px 60px -12px rgba(56, 189, 248, 0.2);
 }
 
 .logo {
@@ -106,7 +95,6 @@ body {
   animation: floatLogo 3s ease-in-out infinite;
 }
 
-/* Лёгкое покачивание логотипа */
 @keyframes floatLogo {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-4px); }
@@ -120,7 +108,7 @@ body {
 }
 
 .subtitle {
-  color: #94a3b8;
+  color: #cbd5e1;
   font-size: 15px;
   margin-bottom: 28px;
 }
@@ -134,26 +122,26 @@ body {
 .label {
   font-size: 13px;
   font-weight: 600;
-  color: #cbd5e1;
+  color: #e2e8f0;
   margin-top: 6px;
 }
 
 .input {
   padding: 13px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
   font-size: 16px;
-  background: rgba(2, 6, 23, 0.55);
+  background: rgba(2, 6, 23, 0.65);
   color: #ffffff;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .input::placeholder {
-  color: #64748b;
+  color: #94a3b8;
 }
 
 .input:hover {
-  border-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .input:focus {
@@ -170,7 +158,6 @@ body {
   animation: shake 0.3s ease-in-out;
 }
 
-/* Встряска при ошибке ввода */
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
   25% { transform: translateX(-5px); }
@@ -190,7 +177,7 @@ body {
   align-items: center;
   gap: 8px;
   font-size: 14px;
-  color: #cbd5e1;
+  color: #e2e8f0;
   cursor: pointer;
 }
 
@@ -230,7 +217,6 @@ body {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Световой блик, пробегающий по кнопке при наведении */
 .button::after {
   content: '';
   position: absolute;
@@ -260,7 +246,7 @@ body {
   display: flex;
   align-items: center;
   text-align: center;
-  color: #64748b;
+  color: #94a3b8;
   font-size: 13px;
   margin: 22px 0;
 }
@@ -269,7 +255,7 @@ body {
 .divider::after {
   content: '';
   flex: 1;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .divider::before { margin-right: 12px; }
@@ -283,9 +269,9 @@ body {
 
 .social-btn {
   padding: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.08);
   color: #f8fafc;
   font-size: 14px;
   font-weight: 600;
@@ -294,8 +280,8 @@ body {
 }
 
 .social-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(56, 189, 248, 0.4);
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(56, 189, 248, 0.45);
   transform: translateY(-2px);
 }
 
@@ -303,7 +289,7 @@ body {
   margin-top: 26px;
   text-align: center;
   font-size: 14px;
-  color: #94a3b8;
+  color: #cbd5e1;
 }
 
 @media (max-width: 480px) {
